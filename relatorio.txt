@@ -1,0 +1,85 @@
+Hugo de Barros Pimentel Dutra Machado - 1410530
+Gabriel Araujo Carvalho - 1413294
+
+
+Nas seguintes funções usamos o vet[] = {1,-2,3,-4} e o vet2[] = {100,128,55,-32}.
+Todos os valores obtidos no terminal foram feitos no papel para verificar se o valor impresso no vs_print estava certo.
+
+1)VetSmallInt vs_new(int vet[]);
+	Usamos o printf("%x", vet) e printf("%x", vet2) e no terminal ficou:
+	
+	7e0fc 
+	
+	c0900de0
+
+Esses numeros em hexadecimal são equivalentes ao vet e vet2 na forma de pequenos inteiros.
+
+2)void vs_printf(VetSmallInt v);
+
+Testamos vs_print com os vet e vet2 na forma de pequenos inteiros e obtivemos o seguinte resultado no terminal:
+
+Overflow:	nao	nao	nao	nao	
+Valores:	1 (1)	-2 (3e)	3 (3)	-4 (3c)
+
+Overflow:	sim	sim	nao	nao	
+Valores:	-28 (24)	0 (0)	-9 (37)	-32 (20)
+
+Se separarmos cada int eles apresentarão o mesmo valor que esta no vs_print.
+
+3)vs_add(VetSmallInt v, VetSmallInt);
+
+Fizemos a vs_add colocando as os 2 vetores gerados com o vs_new e usamos a printf que printou no terminal:
+
+Overflow:	nao	nao	nao	sim	
+Valores:	-27 (25)	-2 (3e)	-6 (3a)	28 (1c)	
+
+Os valores foram verificados, e sao iguais ao exemplo do site.
+
+4)VetSmallInt vs_shl(VetsmallInt v, int n);
+
+O valor de n foi de 2 logo o shif foi << 2.
+
+Overflow:	nao	nao	nao	nao	
+Valores:	4 (4)	-8 (38)	12 (c)	-16 (30)
+
+Overflow:	nao	nao	nao	nao	
+Valores:	16 (10)	0 (0)	28 (1c)	0 (0)
+
+5)VetSmallInt vs_shr(VetSmallInt v, int n);
+
+O valor de n foi de 2 logo o shift foi << 2.
+
+Overflow:	nao	nao	nao	nao	
+Valores:	0 (0)	15 (f)	0 (0)	15 (f)	
+
+Overflow:	nao	nao	nao	nao	
+Valores:	9 (9)	0 (0)	13 (d)	8 (8)
+
+6)VetSmallInt vs_sar(VetSmallInt v, int n);
+
+O valor de n  foi de 2 logo o shift << 2.
+
+Overflow:	nao	nao	nao	nao	
+Valores:	0 (0)	-1 (3f)	0 (0)	-1 (3f)
+
+Overflow:	nao	nao	nao	nao	
+Valores:	-7 (39)	0 (0)	-3 (3d)	-8 (38)	
+
+7)int vs_write(VetSmallInt, FILE *f);
+
+Usamos o valor do vet obtido atravez do vs_new e detro do arquivo foi impresso:
+
+\FC\E0\00
+so foi  verificado se este valor estava certo atravez da função vs_read.
+
+8)VetSmallInt vs_read(FILE *f);
+
+Essa função nos retornor o seguinte resultado no terminal:
+
+Overflow:	nao	nao	nao	nao	
+Valores:	1 (1)	-2 (3e)	3 (3)	-4 (3c)	
+
+O mesmo resultado do vs_print do vet logo esta correto a leitura do arquivo. 
+
+
+Pelo nossos testes todas as funções estão funcionando.
